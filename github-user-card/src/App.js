@@ -32,9 +32,16 @@ class App extends React.Component {
       }))
   }
 
-  componentDidUpdate(){
-
+  componentDidUpdate(prevProps, prevState){
+    console.log('Previous State:', prevState)
+    console.log('Current State:', this.state)
+    if(prevState.user === ""){
+      this.fetchData()
+    } else {
+      console.log('did not fetch new data')
+    }
   }
+
   //helper functions:
   handleChange = (e) => {
     this.setState({
@@ -48,7 +55,9 @@ class App extends React.Component {
   }
 
   handleFollowerClick = (followerLogin) => {
-    console.log(followerLogin)
+    this.setState({
+      user: followerLogin
+    })
   }
 
   render() {
