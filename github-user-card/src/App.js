@@ -12,15 +12,7 @@ class App extends React.Component {
     followerData: [],
   }
 
-  //helper functions:
-  handleChange = (e) => {
-    this.setState({
-      user: e.target.value
-    })
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
+  fetchData(){
     const userUrl = `https://api.github.com/users/${this.state.user}`;
     const followersUrl = `https://api.github.com/users/${this.state.user}/followers`;
     
@@ -40,6 +32,25 @@ class App extends React.Component {
       }))
   }
 
+  componentDidUpdate(){
+
+  }
+  //helper functions:
+  handleChange = (e) => {
+    this.setState({
+      user: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.fetchData();
+  }
+
+  handleFollowerClick = (followerLogin) => {
+    console.log(followerLogin)
+  }
+
   render() {
       return (
         <div className="App">
@@ -50,7 +61,7 @@ class App extends React.Component {
             </form>
             <UserCard userData={this.state.userData}/>
             <div className='followerCards'>
-              <Follower userData={this.state.userData} followerData={this.state.followerData}/>
+              <Follower userData={this.state.userData} followerData={this.state.followerData} handleFollowerClick={this.handleFollowerClick}/>
             </div>
         </div>
 

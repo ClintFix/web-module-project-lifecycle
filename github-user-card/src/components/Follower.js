@@ -13,7 +13,7 @@ class Follower extends React.Component {
                   {
                       this.props.followerData.map(follower => {
                           return (
-                              <div className='followerCard'>
+                              <div className='followerCard' onClick={() => this.props.handleFollowerClick(follower.login)}>
                                   <h2>{follower.login}</h2>
                                   <div>
                                       <img className='followerImg' src={follower.avatar_url}/>
