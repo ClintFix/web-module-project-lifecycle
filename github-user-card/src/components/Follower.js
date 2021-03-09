@@ -9,14 +9,14 @@ class Follower extends React.Component {
           )
       } else {
           return (
-              <div>
+              <div className='followerCards'>
                   {
                       this.props.followerData.map(follower => {
                           return (
-                              <div>
+                              <div className='followerCard'>
                                   <h2>{follower.login}</h2>
                                   <div>
-                                      <img src={follower.avatar_url}/>
+                                      <img className='followerImg' src={follower.avatar_url}/>
                                   </div>
                               </div>
                           )

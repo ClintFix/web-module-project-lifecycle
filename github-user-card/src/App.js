@@ -49,7 +49,7 @@ class App extends React.Component {
               <button>🔎 Search</button>
             </form>
             <UserCard userData={this.state.userData}/>
-            <div>
+            <div className='followerCards'>
               <Follower userData={this.state.userData} followerData={this.state.followerData}/>
             </div>
         </div>
