@@ -8,14 +8,14 @@ class UserCard extends React.Component {
             return (
                 <div className='userCard'>
                     <h2>{`${this.props.userData.name}`}</h2>
-                    <div className='userImg'>
-                        <img src={`${this.props.userData.avatar_url}`}/>
-                    </div>
-                    <div>{`Bio: ${this.props.userData.bio}`}</div>
-                    <div>{`Location: ${this.props.userData.location}`}</div>
                     <div>
-                        <div>{`Followers: ${this.props.userData.followers}`}</div>
-                        <div>{`Following: ${this.props.userData.following}`}</div>
+                        <img className='userImg'src={`${this.props.userData.avatar_url}`}/>
+                    </div>
+                    <div className='location'>{`📍 ${this.props.userData.location}`}</div>
+                    <div className='bio'>{`${this.props.userData.bio}`}</div>
+                    <div className='followers'>
+                        <div className="count">{`Followers: ${this.props.userData.followers}`}</div>
+                        <div className="count">{`Following: ${this.props.userData.following}`}</div>
                     </div>
                 </div>
             )
