@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react'
 import axios from 'axios'
 import UserCard from './components/UserCard'
+import Follower from './components/Follower'
 
 class App extends React.Component {
   state = {
@@ -48,7 +49,11 @@ class App extends React.Component {
               <button>🔎 Search</button>
             </form>
             <UserCard userData={this.state.userData}/>
+            <div>
+              <Follower userData={this.state.userData} followerData={this.state.followerData}/>
+            </div>
         </div>
+
     );
   }
 }
