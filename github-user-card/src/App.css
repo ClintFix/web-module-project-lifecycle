@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+  background-color: rgb(247, 247, 247);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.userCard {
+  background: #FFFFFF;
+  box-shadow: 0px 30px 60px -40px #070044;
+  border-radius: 5px;
+  width: 35%;
+  margin-top: 40px;
+  padding: 0px 20px 20px;
+}
+
+.userCard h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.userImg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.location {
+  font-size: 0.9rem;
+}
+
+.bio {
+  width: 90%;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.followers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.count {
+  margin: 5px 10px 5px;
+  background-color: rgb(2, 82, 109);
+  padding: 8px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+}
+
+.followerCards {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.followerCard {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.followerCard h2 {
+  font-size: 0.9rem;
+}
+
+.followerImg {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid rgb(2, 82, 109);
+}
