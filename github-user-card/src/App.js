@@ -32,8 +32,9 @@ class App extends React.Component {
         const followerResponse = responses[1];
 
         this.setState({
-          userData: userResponse.data,
-          followerData: followerResponse.data,
+          userData: userResponse.data, // returns single object
+          followerData: followerResponse.data, //returns array of follower objects
+          user: ''
         })
       }))
   }
@@ -46,7 +47,7 @@ class App extends React.Component {
               <input value={this.state.user} onChange={this.handleChange} placeholder="Enter GitHub Username"/>
               <button>🔎 Search</button>
             </form>
-            <UserCard />
+            <UserCard userData={this.state.userData}/>
         </div>
     );
   }
