@@ -8,13 +8,14 @@ import Follower from './components/Follower'
 class App extends React.Component {
   state = {
     user: '',
+    follower: '',
     userData: [],
     followerData: [],
   }
 
-  fetchData(){
-    const userUrl = `https://api.github.com/users/${this.state.user}`;
-    const followersUrl = `https://api.github.com/users/${this.state.user}/followers`;
+  fetchData(userToFetch){
+    const userUrl = `https://api.github.com/users/${userToFetch}`;
+    const followersUrl = `https://api.github.com/users/${userToFetch}/followers`;
     
     const userRequest = axios.get(userUrl);
     const followerRequest = axios.get(followersUrl);
@@ -27,18 +28,18 @@ class App extends React.Component {
         this.setState({
           userData: userResponse.data, // returns single object
           followerData: followerResponse.data, //returns array of follower objects
-          user: ''
+          user: '',
+          // follower: '',
         })
       }))
+      .catch(err => console.log(`Axios Error`, err))
   }
 
   componentDidUpdate(prevProps, prevState){
     console.log('Previous State:', prevState)
     console.log('Current State:', this.state)
-    if(prevState.user === ""){
-      this.fetchData()
-    } else {
-      console.log('did not fetch new data')
+    if(prevState.follower !== this.state.follower){
+      this.fetchData(this.state.follower);
     }
   }
 
@@ -51,12 +52,12 @@ class App extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.fetchData();
+    this.fetchData(this.state.user);
   }
 
   handleFollowerClick = (followerLogin) => {
     this.setState({
-      user: followerLogin
+      follower: followerLogin
     })
   }
 
